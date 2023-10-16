@@ -23,7 +23,7 @@ class APIManager {
            URLQueryItem(name: "v", value: "5.81")
        ]
        
-       APIClient.shared.fetch(from: path, queryItems: queryItems) { (result: Result<FriendsRequest, Error>) in
+        APIClient.shared.fetch(from: path, queryItems: queryItems) { (result: Result<FriendsRequest, Error>) in
            switch result {
            case .success(let friends):
                completion(.success(friends))
@@ -35,14 +35,14 @@ class APIManager {
    }
     
     func fetchGroups(completion: @escaping (Result<GroupsRequest, Error>) -> Void) {
-        let path = "/method/groups.get"
-        let queryItems = [
-            URLQueryItem(name: "access_token", value: Session.instance.token),
-            URLQueryItem(name: "user_id", value: Session.instance.userId),
-            URLQueryItem(name: "extended", value: "1"),
-            URLQueryItem(name: "v", value: "5.81")
-        ]
-        
+            let path = "/method/groups.get"
+            let queryItems = [
+                URLQueryItem(name: "access_token", value: Session.instance.token),
+                URLQueryItem(name: "user_id", value: Session.instance.userId),
+                URLQueryItem(name: "extended", value: "1"),
+                URLQueryItem(name: "v", value: "5.81")
+            ]
+            
         APIClient.shared.fetch(from: path, queryItems: queryItems) { (result: (Result<GroupsRequest, Error>)) in
             switch result {
             case .success(let groups):
