@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FriendsTableViewController: UITableViewController {
     //СОздал модель
@@ -69,7 +70,6 @@ class FriendsTableViewController: UITableViewController {
                     print("Failed to load friends: \(error)")
                 }
             }
-
     }
     
     //MARK: - Actions

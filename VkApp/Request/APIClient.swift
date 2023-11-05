@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 class APIClient {
     static let shared = APIClient()
@@ -43,4 +44,18 @@ class APIClient {
                 }
             }.resume()
         }
+    
+    func save<T: Object>(objects: [T]) {
+        do {
+            let realm = try Realm()
+            try realm.write{
+                realm.add(objects, update: .modified)
+            }
+        } catch {
+            print(error)
+        }
+    }
+
 }
+
+
